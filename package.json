@@ -1,0 +1,75 @@
+{
+    "name": "vue-local-components-autocomplete",
+    "displayName": "vue-local-components-autocomplete",
+    "description": "",
+    "version": "0.0.3",
+    "publisher": "mengfanliao",
+    "repository": "https://github.com/mengfanliao/vue-local-components-autocomplete",
+    "engines": {
+        "vscode": "^1.24.0"
+    },
+    "categories": [
+        "Snippets",
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.sayHello",
+        "onLanguage:vue",
+        "onLanguage:javascript"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Local component autocomplete Configuration",
+            "properties": {
+                "local-component.indent-size": {
+                    "type": "number",
+                    "default": 2,
+                    "description": "Indentation size of autocomplete"
+                },
+                "local-component.quotes": {
+                    "type": "string",
+                    "default": "double",
+                    "description": "Normal quotes of autocomplete",
+                    "enum": [
+                        "single",
+                        "double"
+                    ]
+                },
+                "local-component.dir": {
+                    "type": "string",
+                    "default": "src",
+                    "description": "source code directory"
+                },
+                "local-component.extHiddingList": {
+                    "type": "array",
+                    "default": [
+                        ".js"
+                    ],
+                    "description": "hide file extention when autocomplete filename"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "tslint": "^5.8.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    },
+    "dependencies": {
+        "@types/babylon": "^6.16.3",
+        "acorn": "^5.6.2",
+        "acorn-jsx": "^4.1.1",
+        "pretty": "^2.0.0"
+    }
+}
